@@ -4,7 +4,8 @@
 // @version      0.1
 // @description  Hide all 45+ vaccination sites. Only show 18+
 // @author       You
-// @match        https://*.cowin.gov.in/*
+// @match        https://www.cowin.gov.in/*
+// @match        https://selfregistration.cowin.gov.in/appointment
 // @require      https://code.jquery.com/jquery-3.6.0.min.js
 // @grant        none
 // ==/UserScript==
@@ -36,7 +37,15 @@
 }
 
 onElementInserted('body', '.age-limit', function(element) {
-    if (element.innerText != "Age 18+") { element.closest('div.row').style.display = "none"}
+    if (element.innerText != "Age 18+") {
+        console.log('hiding');
+        if(element.closest('div.row')) {
+            element.closest('div.row').style.display = "none";
+        }
+        console.log(element.closest('div.mat-list-item'));
+        // for the authenticated list which uses different HTML
+        element.closest('div.mat-list-item-content').parentNode.style.display = "none";
+    }
 });
 
 })();
