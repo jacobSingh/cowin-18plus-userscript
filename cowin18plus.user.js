@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Hide all 45+ vaccination sites. Only show 18+
 // @author       You
-// @match        https://www.cowin.gov.in/*
+// @match        https://*.cowin.gov.in/*
 // @require      https://code.jquery.com/jquery-3.6.0.min.js
 // @grant        none
 // ==/UserScript==
